@@ -90,6 +90,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (activityData.participants.includes(email)) {
         messageDiv.textContent = "Você já está inscrito nesta atividade!";
         messageDiv.className = "error";
+        messageDiv.classList.remove("hidden");
+        setTimeout(() => {
+          messageDiv.classList.add("hidden");
+        }, 5000);
+        return;
       }
       // Check if activity is full
       else if (activityData.participants.length >= activityData.max_participants) {
